@@ -1,7 +1,85 @@
 {% extends "app/base.html" %} {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PORTFOLIO</title>
+  <link href="{% static  'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
 
-<div class="my-5">
-  <h1>Hello World!!</h1>
-</div>
+  
+  <header>
+    <h1>Fitness App</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">ホーム</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'plan' %}">計画</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'training' %}">運動メニュー</a>
+            </li>
+          <li class="nav-item">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'food' %}">食事</a>
+                </li>
+            <a class="nav-link" href="{% url 'profile' %}">プロフィール</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'FAQ' %}">FAQ</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
+            </li>
+          {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>健康トレーニング</h2>
+    <div class="about-content">
+      <img src="{% static 'home/img/fitness.png' %}" alt="トレーニング画像" class="image">
+      <ul>
+        <li>プログラム名：<strong>健康トレーニングプログラム</strong></li>
+        <li>プログラム内容：<strong>健康をサポートするトレーニングプログラムを提供</strong></li>
+        <li>トレーニング指導者：<strong>室伏亮</strong></li>
+        <li>所在地：<strong>神奈川県</strong></li>
+        <li>対象者：<strong>全年齢対応</strong></li>
+        <p> </p>
+        <p>当サイトでは、健康トレーニングプログラムを提供しています。室伏亮が指導するトレーニングプログラムは、健康維持や体力向上をサポートします。プログラムにはプログラミングを活用したトレーニング方法も含まれており、楽しみながら健康を改善できます。</p>
+        <p>健康な生活を送りたい方、体力をアップさせたい方、是非ご参加ください！</p>
+      </ul>
+    </div>
+  </section>
+  
+
+  
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>メールアドレス：<strong>s1f102102010@iniad.org</strong></p>
+    <p>電話番号：<strong>080-1371-3329</strong></p>
+    <p></p>
+    <p><strong>是非メッセージをお待ちしております！</strong></p>
+  </section>
+  <footer>
+    <p>© 2023 就活ポートフォリオ. All rights reserved.</p>
+  </footer>
+</body>
+</html>
 
 {% endblock %}

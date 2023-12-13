@@ -1,6 +1,15 @@
 from django.views import View
 from django.shortcuts import render
 
+from django.shortcuts import render
+import openai
+
+def my_view(request):
+    openai.api_key = settings.OPENAI_API_KEY
+
+    # OpenAI APIを使った処理
+
+    return render(request, 'template.html')
 class TrainingView(View):
     def get(self, request, *args, **kwargs):
         # 何かの処理
