@@ -1,19 +1,55 @@
-{% extends "app/base.html" %} {% block content %}
+{% extends "app/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT FAQ</title>
+</head>
+<body>
 
 <div class="card card-profile my-5 mx-auto">
   <div class="card-body">
     <h5 class="card-title text-center">FAQ</h5>
-    <table class="profile_table mb-4">
-      <tbody>
-        <tr>
-            <h2>FAQ</h2>
-            <p>FAQの説明や指示をここに記述します。</p>
-        </tr>
-       
-      </tbody>
-    </table>
-    
+    <div id="faq-container">
+      <h2>FAQ</h2>
+      <p>FAQの説明や指示をここに記述します。</p>
+      <label for="question">質問:</label>
+      <input type="text" id="question" name="question" class="form-control">
+      <label for="answer">回答:</label>
+      <div id="answer" class="form-control"></div>
+      <button onclick="askChatGPT()">ChatGPTに質問する</button>
+    </div>
   </div>
 </div>
+
+<script>
+  async function askChatGPT() {
+    const question = document.getElementById("question").value;
+
+    try {
+      const response = await fetch('https://api.openai.iniad.org/api/v1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ question: question }),
+        mode: 'no-cors' // この行を追加
+      });
+    
+      const data = await response.json();
+      console.log('API Response:', data);
+
+      document.getElementById("answer").innerHTML = data.answer;
+    } catch (error) {
+      console.error('Error:', error);
+      document.getElementById("answer").innerHTML = 'エラーが発生しました。詳細はコンソールを確認してください。';
+    }
+  }
+</script>
+
+</body>
+</html>
 
 {% endblock %}
