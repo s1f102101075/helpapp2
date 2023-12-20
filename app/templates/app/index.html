@@ -10,45 +10,7 @@
 <body>
 
   
-  <header>
-    <h1>Fitness App</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">ホーム</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'plan' %}">計画</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'training' %}">運動メニュー</a>
-            </li>
-          <li class="nav-item">
-              <li class="nav-item">
-                  <a class="nav-link" href="{% url 'food' %}">食事</a>
-                </li>
-            <a class="nav-link" href="{% url 'profile' %}">プロフィール</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'FAQ' %}">FAQ</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
-            </li>
-          {% else %}
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
-            </li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-  </header>
+  
 
   <section id="about">
     <h2>健康トレーニング</h2>
