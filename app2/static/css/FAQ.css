@@ -1,0 +1,99 @@
+/* ベースとなるデザイン */
+.card-profile {
+  background-color: #F8F9FA;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-profile:hover {
+  transform: translateY(-15px);
+}
+
+#faq-container {
+  text-align: center;
+  padding: 40px;
+}
+
+/* ラベルと入力フォーム */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555; /* より暗めの文字色 */
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 2px solid #B0C4DE; /* より濃い青系のボーダーカラー */
+  border-radius: 8px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus {
+  border-color: #4169E1; /* フォーカス時のボーダーカラー */
+  outline: none;
+}
+
+/* 回答エリア */
+#answer {
+  border: 2px solid #B0C4DE;
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 80px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* 質問ボタン */
+button {
+  background-color: #4169E1;
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #1E90FF; /* ホバー時のカラー */
+}
+
+/* ローディングスピナー */
+.spinner-border {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25em solid #4169E1;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner .75s linear infinite;
+}
+
+/* 装飾的な要素 */
+.card-title {
+  position: relative;
+  font-size: 2.5rem;
+  color: #333; /* より濃い文字色 */
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -15px;
+  height: 5px;
+  background: linear-gradient(to right, #4169E1, #1E90FF);
+}
+
+/* スピナーのアニメーション */
+@keyframes spinner {
+  100% {
+      transform: rotate(360deg);
+  }
+}

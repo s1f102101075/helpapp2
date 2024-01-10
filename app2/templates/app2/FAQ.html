@@ -1,20 +1,13 @@
 {% extends "app/base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT FAQ</title>
-</head>
-<body>
-
 <div class="card card-profile my-5 mx-auto">
   <div class="card-body">
     <h5 class="card-title text-center">FAQ</h5>
     <div id="faq-container">
-      <h2>FAQ</h2>
+    {% load static %}
       <p>FAQの説明や指示をここに記述します。</p>
+      <form action="{% url 'index' %}" method="post"></form>
+      <link rel="stylesheet" href="{% static 'css/FAQ.css' %}" />
       <label for="question">質問:</label>
       <input type="text" id="question" name="question" class="form-control">
       <label for="answer">回答:</label>
@@ -35,12 +28,12 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ question: question }),
-        mode: 'no-cors' // この行を追加
+        mode: 'no-cors'
       });
-    
+
       const data = await response.json();
       console.log('API Response:', data);
-
+     
       document.getElementById("answer").innerHTML = data.answer;
     } catch (error) {
       console.error('Error:', error);
@@ -48,8 +41,4 @@
     }
   }
 </script>
-
-</body>
-</html>
-
 {% endblock %}
