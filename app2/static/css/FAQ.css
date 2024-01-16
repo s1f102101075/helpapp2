@@ -1,99 +1,133 @@
 /* ベースとなるデザイン */
 .card-profile {
   background-color: #F8F9FA;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease-in-out;
 }
 
 .card-profile:hover {
-  transform: translateY(-15px);
+  transform: translateY(-20px);
 }
 
 #faq-container {
   text-align: center;
-  padding: 40px;
+  padding: 60px;
 }
 
 /* ラベルと入力フォーム */
 label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: bold;
-  color: #555; /* より暗めの文字色 */
+  color: #444; /* より濃い文字色 */
+}
+/* 質問ラベルのスタイル */
+label[for="question"]{
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 24px; /* ラベルのフォントサイズを大きく */
+  color: #333; /* より濃いテキストカラー */
+}
+label[for="answer"]{
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 24px; /* ラベルのフォントサイズを大きく */
+  color: #333; /* より濃いテキストカラー */
 }
 
 input {
   width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 18px;
+  margin-bottom: 25px;
   box-sizing: border-box;
-  border: 2px solid #B0C4DE; /* より濃い青系のボーダーカラー */
-  border-radius: 8px;
-  transition: border-color 0.2s ease-in-out;
+  border: 2px solid #6A5ACD; /* ディープパープル系のボーダーカラー */
+  border-radius: 12px;
+  transition: border-color 0.3s ease-in-out;
 }
 
 input:focus {
-  border-color: #4169E1; /* フォーカス時のボーダーカラー */
+  border-color: #800080; /* ダークマゼンダのボーダーカラー */
   outline: none;
 }
 
 /* 回答エリア */
 #answer {
-  border: 2px solid #B0C4DE;
-  padding: 20px;
-  margin-bottom: 20px;
-  min-height: 80px;
-  border-radius: 10px;
-  transition: background-color 0.3s ease-in-out;
+  border: 2px solid #6A5ACD;
+  padding: 25px;
+  margin-bottom: 25px;
+  min-height: 100px;
+  border-radius: 15px;
+  transition: background-color 0.4s ease-in-out;
 }
 
 /* 質問ボタン */
 button {
-  background-color: #4169E1;
+  background-color: #6A5ACD; /* マゼンダ系のカラー */
   color: #fff;
-  padding: 15px 25px;
+  padding: 18px 28px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #1E90FF; /* ホバー時のカラー */
+  background-color: #800080; /* ダークマゼンダのホバー時のカラー */
 }
 
 /* ローディングスピナー */
 .spinner-border {
   display: none;
-  width: 2rem;
-  height: 2rem;
-  border: 0.25em solid #4169E1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.25em solid #6A5ACD;
   border-right-color: transparent;
   border-radius: 50%;
-  animation: spinner .75s linear infinite;
+  animation: spinner .9s linear infinite;
 }
 
 /* 装飾的な要素 */
 .card-title {
   position: relative;
-  font-size: 2.5rem;
-  color: #333; /* より濃い文字色 */
+  font-family: 'Playfair Display', serif; /* より豪華なフォント */
+  font-size: 3rem;
+  color: #6A5ACD; /* マゼンダ系の文字色 */
 }
 
 .card-title::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -15px;
-  height: 5px;
-  background: linear-gradient(to right, #4169E1, #1E90FF);
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 8px;
+  background: linear-gradient(to right, #6A5ACD, #800080);
+  border-radius: 15px;
 }
+
+
 
 /* スピナーのアニメーション */
 @keyframes spinner {
   100% {
       transform: rotate(360deg);
   }
+}
+
+/* body{
+  background-color: #000000;
+  padding: 0px;
+  margin: 0px;
+} */
+
+#gradient
+{
+ width: 100%;
+ height: 800px;
+ padding: 0px;
+ margin: 0px;
 }
