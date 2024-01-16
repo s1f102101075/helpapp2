@@ -25,3 +25,4 @@ urlpatterns = [
     path('app2/', include('app2.urls')),
 
 ]
+yynm,n/
