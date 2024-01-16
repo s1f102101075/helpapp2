@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app2.views import chat_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +23,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
     path('app2/', include('app2.urls')),
-    path('chat/', chat_view, name='chat_view'),
 
 ]
