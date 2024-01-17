@@ -76,3 +76,15 @@ def chat_view(request):
     # GETリクエストの場合、単にテンプレートを表示
     return render(request, 'app2/FAQ.html', {'user_input': None, 'response': None})
 #PO-ff9eWT3byCD1phldL-Ka6GhBwsxHPnO7cHmcmYz5StkIt5jFkAml1VItwt13O0iCcTDbQtHZktPbCzBh0uzA
+
+def chat_view2(request):
+    if request.method == 'POST':
+        # フォームからユーザーの質問を取得
+        user_input = request.POST.get('user_input', '')
+        # ChatGPTに質問し、回答を取得
+        response = chat_with_gpt(user_input)
+        # ChatGPTからの回答をテンプレートに渡して表示
+        return render(request, 'app2/plan.html', {'user_input': user_input, 'response': response})
+    # GETリクエストの場合、単にテンプレートを表示
+    return render(request, 'app2/plan.html', {'user_input': None, 'response': None})
+#PO-ff9eWT3byCD1phldL-Ka6GhBwsxHPnO7cHmcmYz5StkIt5jFkAml1VItwt13O0iCcTDbQtHZktPbCzBh0uzA
